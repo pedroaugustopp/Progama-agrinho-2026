@@ -1,12 +1,5 @@
-/* ============================================================
-   JavaScript - Agro Forte • Futuro Sustentável
-   Funcionalidades: navegação suave, menu mobile, quiz,
-   contadores animados, revelação ao scroll, back-to-top
-   ============================================================ */
-
 document.addEventListener('DOMContentLoaded', () => {
 
-    // ========== ELEMENTOS DO DOM ==========
     const header = document.getElementById('header');
     const nav = document.getElementById('nav');
     const navToggle = document.getElementById('navToggle');
@@ -18,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     );
     const statNumbers = document.querySelectorAll('.stat__number[data-target]');
 
-    // Quiz
     const quizBox = document.getElementById('quiz');
     const quizQuestionEl = document.getElementById('quizQuestion');
     const quizOptionsEl = document.getElementById('quizOptions');
@@ -37,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let score = 0;
     let quizAnswered = false;
 
-    // ========== PERGUNTAS DO QUIZ ==========
     const quizData = [
         {
             question: 'Qual prática agrícola ajuda a proteger o solo contra erosão?',
@@ -86,7 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
-    // ========== FUNÇÕES DO QUIZ ==========
     function loadQuestion() {
         if (currentQuestionIndex >= quizData.length) {
             showResult();
@@ -172,7 +162,6 @@ document.addEventListener('DOMContentLoaded', () => {
         loadQuestion();
     }
 
-    // Event listeners do quiz
     quizNextBtn.addEventListener('click', () => {
         currentQuestionIndex++;
         loadQuestion();
@@ -181,22 +170,18 @@ document.addEventListener('DOMContentLoaded', () => {
     quizRestartBtn.addEventListener('click', restartQuiz);
     if (quizRestartBtn2) quizRestartBtn2.addEventListener('click', restartQuiz);
 
-    // Iniciar quiz
     loadQuestion();
 
-    // ========== MENU MOBILE ==========
     navToggle.addEventListener('click', () => {
         nav.querySelector('.nav__list').classList.toggle('nav__list--open');
     });
 
-    // Fechar menu ao clicar em um link
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             nav.querySelector('.nav__list').classList.remove('nav__list--open');
         });
     });
 
-    // ========== HEADER SCROLL EFFECT ==========
     function updateHeader() {
         if (window.scrollY > 50) {
             header.classList.add('header--scrolled');
@@ -205,7 +190,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // ========== ATUALIZAR LINK ATIVO NA NAVEGAÇÃO ==========
     function updateActiveNavLink() {
         let currentSectionId = '';
         sections.forEach(section => {
@@ -223,7 +207,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ========== BACK TO TOP ==========
     function updateBackToTop() {
         if (window.scrollY > 500) {
             backToTop.classList.add('back-to-top--visible');
@@ -236,7 +219,6 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // ========== REVELAÇÃO AO SCROLL (Intersection Observer) ==========
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -254,7 +236,6 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.observe(el);
     });
 
-    // ========== CONTADORES ANIMADOS ==========
     const counterObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -278,7 +259,6 @@ document.addEventListener('DOMContentLoaded', () => {
         function update(currentTime) {
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
-            // Easing suave
             const eased = 1 - Math.pow(1 - progress, 4);
             const current = Math.floor(startValue + (target - startValue) * eased);
             element.textContent = current;
@@ -293,7 +273,6 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(update);
     }
 
-    // ========== SCROLL COMBINADO ==========
     let ticking = false;
     window.addEventListener('scroll', () => {
         if (!ticking) {
@@ -307,12 +286,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Inicializar estados
     updateHeader();
     updateActiveNavLink();
     updateBackToTop();
 
-    // ========== EFEITO DE PARTÍCULAS (FOLHAS CAINDO NO HERO) ==========
     function createFallingLeaves() {
         const hero = document.querySelector('.hero');
         if (!hero) return;
@@ -345,28 +322,13 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             container.appendChild(leaf);
 
-            // Remover após animação
             setTimeout(() => {
                 leaf.remove();
             }, 15000);
         }, 1500);
     }
 
-    // Adicionar keyframe para folhas caindo
-    const leafStyle = document.createElement('style');
-    leafStyle.textContent = `
-        @keyframes fallLeaf {
-            0% { transform: translateY(0) rotate(0deg) translateX(0); opacity: 0.8; }
-            25% { transform: translateY(25vh) rotate(90deg) translateX(30px); opacity: 0.9; }
-            50% { transform: translateY(50vh) rotate(180deg) translateX(-20px); opacity: 0.7; }
-            75% { transform: translateY(75vh) rotate(270deg) translateX(40px); opacity: 0.5; }
-            100% { transform: translateY(105vh) rotate(360deg) translateX(-10px); opacity: 0; }
-        }
-    `;
-    document.head.appendChild(leafStyle);
-
     createFallingLeaves();
 
-    console.log('🌾 Agro Forte • Futuro Sustentável — Site carregado com sucesso!');
-    console.log('💚 Pronto para o Agrinho 2025!');
+    console.log('🌾 Agro Forte • Futuro Sustentável — pronto para o Agrinho 2026!');
 });
