@@ -1,15 +1,9 @@
-/* ============================================================
-   CSS - Agro Forte • Futuro Sustentável
-   Estilo inspirado em Stardew Valley (pixel art, rural, aconchegante)
-   ============================================================ */
-
-/* ---------- VARIÁVEIS DE CORES ---------- */
 :root {
     --green-grass: #6B8C42;
-    --green-dark: #4A7C3F;
+    --green-dark: #3F5E2A;
     --green-light: #8CB560;
     --brown-wood: #8B5E3C;
-    --brown-dark: #5C3D2E;
+    --brown-dark: #4E3422;
     --brown-earth: #A0724A;
     --beige-bg: #FDF5E6;
     --beige-card: #FFF8EC;
@@ -30,9 +24,9 @@
     --font-pixel: 'Press Start 2P', cursive;
     --font-display: 'Silkscreen', cursive;
     --font-body: 'VT323', monospace;
+    --tile-pattern: url("data:image/svg+xml,%3Csvg width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='20' height='20' fill='none' stroke='%23d4c8a0' stroke-width='0.5' stroke-dasharray='2,2'/%3E%3C/svg%3E");
 }
 
-/* ---------- RESET E BASE ---------- */
 *,
 *::before,
 *::after {
@@ -59,7 +53,6 @@ body {
     overflow-x: hidden;
 }
 
-/* ---------- TIPOGRAFIA ---------- */
 h1, h2, h3, h4 {
     font-family: var(--font-display);
     font-weight: 700;
@@ -82,7 +75,6 @@ img {
     height: auto;
 }
 
-/* ---------- UTILITÁRIOS ---------- */
 .section {
     padding: 5rem 1.5rem;
     position: relative;
@@ -120,7 +112,6 @@ img {
     margin: 0 auto;
 }
 
-/* ---------- BOTÕES ---------- */
 .btn {
     display: inline-block;
     font-family: var(--font-display);
@@ -168,7 +159,6 @@ img {
     box-shadow: 0 2px 0 #a07830;
 }
 
-/* ---------- HEADER ---------- */
 .header {
     position: fixed;
     top: 0;
@@ -215,7 +205,6 @@ img {
     color: var(--green-dark);
 }
 
-/* Navegação */
 .nav__list {
     display: flex;
     list-style: none;
@@ -244,7 +233,6 @@ img {
     box-shadow: 0 2px 8px rgba(107, 140, 66, 0.4);
 }
 
-/* Menu mobile */
 .nav__toggle {
     display: none;
     flex-direction: column;
@@ -263,7 +251,6 @@ img {
     transition: all 0.3s;
 }
 
-/* Cerca decorativa */
 .header__fence {
     display: flex;
     justify-content: space-around;
@@ -282,7 +269,6 @@ img {
     border-bottom: none;
 }
 
-/* ---------- HERO ---------- */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -304,21 +290,12 @@ img {
     z-index: 0;
 }
 
-/* Nuvens */
 .cloud {
     position: absolute;
     background-color: var(--white-cloud);
-    border-radius: 50px;
-    opacity: 0.85;
+    opacity: 0.9;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-}
-
-.cloud::before,
-.cloud::after {
-    content: '';
-    position: absolute;
-    background-color: inherit;
-    border-radius: 50%;
+    image-rendering: pixelated;
 }
 
 .cloud--1 {
@@ -327,61 +304,28 @@ img {
     top: 12%;
     left: 10%;
     animation: cloudFloat 25s linear infinite;
+    border-radius: 20px;
+    box-shadow: 20px -10px 0 10px var(--white-cloud), 50px -8px 0 12px var(--white-cloud), 80px -12px 0 8px var(--white-cloud);
 }
-.cloud--1::before {
-    width: 50px;
-    height: 50px;
-    top: -25px;
-    left: 20px;
-}
-.cloud--1::after {
-    width: 60px;
-    height: 55px;
-    top: -20px;
-    left: 50px;
-}
-
 .cloud--2 {
     width: 100px;
     height: 32px;
     top: 20%;
     left: 55%;
     animation: cloudFloat 30s linear infinite reverse;
+    border-radius: 16px;
+    box-shadow: 15px -8px 0 8px var(--white-cloud), 40px -6px 0 10px var(--white-cloud);
 }
-.cloud--2::before {
-    width: 40px;
-    height: 40px;
-    top: -18px;
-    left: 15px;
-}
-.cloud--2::after {
-    width: 45px;
-    height: 42px;
-    top: -16px;
-    left: 40px;
-}
-
 .cloud--3 {
     width: 80px;
     height: 28px;
     top: 8%;
     left: 75%;
     animation: cloudFloat 22s linear infinite;
-}
-.cloud--3::before {
-    width: 35px;
-    height: 35px;
-    top: -15px;
-    left: 12px;
-}
-.cloud--3::after {
-    width: 38px;
-    height: 36px;
-    top: -14px;
-    left: 32px;
+    border-radius: 14px;
+    box-shadow: 12px -6px 0 6px var(--white-cloud), 35px -7px 0 8px var(--white-cloud);
 }
 
-/* Sol */
 .sun {
     position: absolute;
     width: 70px;
@@ -392,6 +336,7 @@ img {
     right: 15%;
     box-shadow: 0 0 50px #FFE484, 0 0 100px #F0C040;
     animation: sunPulse 4s ease-in-out infinite;
+    image-rendering: pixelated;
 }
 
 .hero__ground {
@@ -454,7 +399,6 @@ img {
     flex-wrap: wrap;
 }
 
-/* Elementos decorativos da fazenda */
 .hero__farm-elements {
     position: absolute;
     bottom: 0;
@@ -478,7 +422,6 @@ img {
 .chicken--2 { bottom: 5px; left: 85%; animation-delay: 2.2s; }
 .cow { bottom: 0px; left: 20%; font-size: 3.5rem; animation-delay: 3.5s; }
 
-/* ---------- CARDS GENÉRICOS ---------- */
 .card {
     background-color: var(--beige-card);
     border: var(--border-pixel);
@@ -487,6 +430,9 @@ img {
     text-align: center;
     box-shadow: var(--shadow-card);
     transition: transform 0.3s, box-shadow 0.3s;
+    background-image: var(--tile-pattern);
+    background-size: 20px 20px;
+    position: relative;
 }
 
 .card:hover {
@@ -511,7 +457,6 @@ img {
     color: var(--text-medium);
 }
 
-/* ---------- ABOUT ---------- */
 .about {
     background-color: #F7F0E3;
 }
@@ -548,10 +493,9 @@ img {
     margin-top: 0.8rem;
 }
 
-/* ---------- PRACTICES ---------- */
 .practices {
     background-color: var(--beige-bg);
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4c8a0' fill-opacity='0.25'%3E%3Ccircle cx='30' cy='30' r='3'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-image: var(--tile-pattern);
 }
 
 .practices__grid {
@@ -624,7 +568,6 @@ img {
     border: 1px solid var(--green-light);
 }
 
-/* ---------- TECHNOLOGY ---------- */
 .technology {
     background-color: #EDF3E8;
 }
@@ -678,7 +621,6 @@ img {
     color: var(--text-medium);
 }
 
-/* ---------- QUIZ ---------- */
 .balance {
     background-color: #F7F0E3;
 }
@@ -798,7 +740,6 @@ img {
     color: var(--text-medium);
 }
 
-/* ---------- FUTURE ---------- */
 .future {
     background: linear-gradient(180deg, #EDF3E8 0%, #E8DCC8 100%);
 }
@@ -810,6 +751,8 @@ img {
     padding: 3rem 2rem;
     box-shadow: var(--shadow-card);
     text-align: center;
+    background-image: var(--tile-pattern);
+    background-size: 20px 20px;
 }
 
 .future__icon {
@@ -856,7 +799,6 @@ img {
     color: var(--text-light);
 }
 
-/* ---------- FOOTER ---------- */
 .footer {
     background-color: var(--brown-dark);
     color: #f0e0c8;
@@ -927,7 +869,6 @@ img {
     opacity: 0.6;
 }
 
-/* ---------- BACK TO TOP ---------- */
 .back-to-top {
     position: fixed;
     bottom: 30px;
@@ -959,7 +900,6 @@ img {
     transform: translateY(-3px);
 }
 
-/* ---------- ANIMAÇÕES ---------- */
 @keyframes bounceIcon {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
@@ -986,7 +926,6 @@ img {
     50% { transform: translateY(-15px); }
 }
 
-/* Classe para animação de entrada ao scroll */
 .reveal-on-scroll {
     opacity: 0;
     transform: translateY(40px);
@@ -998,7 +937,14 @@ img {
     transform: translateY(0);
 }
 
-/* ---------- RESPONSIVIDADE ---------- */
+@keyframes fallLeaf {
+    0% { transform: translateY(0) rotate(0deg) translateX(0); opacity: 0.8; }
+    25% { transform: translateY(25vh) rotate(90deg) translateX(30px); opacity: 0.9; }
+    50% { transform: translateY(50vh) rotate(180deg) translateX(-20px); opacity: 0.7; }
+    75% { transform: translateY(75vh) rotate(270deg) translateX(40px); opacity: 0.5; }
+    100% { transform: translateY(105vh) rotate(360deg) translateX(-10px); opacity: 0; }
+}
+
 @media (max-width: 768px) {
     html { font-size: 14px; }
 
