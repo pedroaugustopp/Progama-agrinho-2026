@@ -31,49 +31,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const quizData = [
         {
-            question: 'Qual prática agrícola ajuda a proteger o solo contra erosão?',
-            options: ['Queimada controlada', 'Plantio direto na palhada', 'Aração profunda', 'Monocultura intensiva'],
-            correct: 1,
-            explanation: 'O plantio direto mantém a palhada que protege o solo da chuva e do vento, evitando erosão e retendo umidade.'
-        },
-        {
-            question: 'O que significa a sigla ILPF na agricultura sustentável?',
-            options: [
-                'Instituto Livre de Pesquisa Florestal',
-                'Integração Lavoura-Pecuária-Floresta',
-                'Índice de Luminosidade para Plantio Fechado',
-                'Isolamento Laminar de Proteção Fitossanitária'
-            ],
-            correct: 1,
-            explanation: 'ILPF é um sistema que integra agricultura, pecuária e floresta na mesma área, otimizando recursos e regenerando o solo.'
-        },
-        {
-            question: 'Qual fonte de energia renovável é mais comum em propriedades rurais?',
-            options: ['Carvão mineral', 'Energia nuclear', 'Placas solares fotovoltaicas', 'Gasolina'],
+            question: 'Qual sistema de irrigação leva a água diretamente à raiz da planta, reduzindo drasticamente o desperdício?',
+            options: ['Pivô tradicional por aspersão', 'Microaspersão de alta pressão', 'Gotejamento localizado', 'Inundação por sulcos artificiais'],
             correct: 2,
-            explanation: 'As placas solares são uma solução limpa e cada vez mais acessível para o campo, reduzindo custos e emissões.'
+            explanation: 'O gotejamento aplica a água de forma localizada e lenta, diminuindo perdas por evaporação e escoamento superficial na lavoura.'
         },
         {
-            question: 'O controle biológico de pragas utiliza:',
+            question: 'Qual é a principal função da vegetação nativa (mata ciliar) ao redor de nascentes e rios?',
             options: [
-                'Mais agrotóxicos',
-                'Predadores naturais das pragas',
-                'Queima da plantação',
-                'Fertilizantes nitrogenados'
+                'Aumentar a temperatura térmica da água',
+                'Proteger contra o assoreamento e filtrar impurezas do solo',
+                'Apenas servir de ornamentação para a propriedade',
+                'Reduzir o fluxo de oxigênio do ecossistema hídrico'
             ],
             correct: 1,
-            explanation: 'Predadores naturais, como joaninhas e vespas, controlam pragas sem necessidade de produtos químicos agressivos.'
+            explanation: 'A mata ciliar funciona como um filtro biológico protetor que segura a estrutura do solo e evita o soterramento dos cursos dágua.'
         },
         {
-            question: 'Qual é o principal benefício da rotação de culturas?',
+            question: 'Como os sensores de Internet das Coisas (IoT) atuam na economia hídrica do campo?',
+            options: ['Monitorando o preço de mercado das safras', 'Medindo a umidade do solo em tempo real para acionar a rega só quando necessário', 'Substituindo o uso de adubação orgânica', 'Alterando o ciclo natural de chuvas da região'],
+            correct: 1,
+            explanation: 'Os sensores mapeiam a real necessidade da terra, evitando irrigações excessivas e aplicando o volume exato exigido pela planta.'
+        },
+        {
+            question: 'A captação e o armazenamento de água pluvial por meio de cisternas rurais serve para:',
             options: [
-                'Aumentar o uso de fertilizantes',
-                'Melhorar a fertilidade do solo e quebrar ciclos de pragas',
-                'Reduzir a biodiversidade',
-                'Plantar sempre a mesma cultura'
+                'Substituir integralmente o consumo de poços artesianos residenciais',
+                'Otimizar tarefas de limpeza, manejo animal e pequenas irrigações sem esgotar fontes naturais',
+                'Aumentar o índice de evaporação local da propriedade',
+                'Eliminar os processos de infiltração natural da água no solo'
             ],
             correct: 1,
-            explanation: 'Alternar culturas repõe nutrientes, melhora a estrutura do solo e dificulta a proliferação de pragas específicas.'
+            explanation: 'As cisternas preservam os mananciais ao estocar água da chuva para atividades secundárias do cotidiano rural.'
+        },
+        {
+            question: 'O plantio feito em curvas de nível atua como uma estratégia hídrica essencial porque:',
+            options: [
+                'Atrai polinizadores específicos para as flores',
+                'Acelera a descida rápida das enxurradas morro abaixo',
+                'Retém os fluxos de água na terra, favorecendo a infiltração e a recarga dos lençóis freáticos',
+                'Diminui a necessidade de radiação solar direta na plantação'
+            ],
+            correct: 2,
+            explanation: 'As curvas de nível quebram a velocidade da enxurrada, permitindo que a água ganhe tempo para penetrar profundamente no solo.'
         }
     ];
 
@@ -117,10 +117,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (selectedIndex === correctIndex) {
             score++;
-            quizFeedbackEl.textContent = '✅ Correto! ' + explanation;
+            quizFeedbackEl.textContent = '✅ Perfeito! ' + explanation;
             quizFeedbackEl.style.color = '#28a745';
         } else {
-            quizFeedbackEl.textContent = '❌ Ops! ' + explanation;
+            quizFeedbackEl.textContent = '❌ Quase lá! ' + explanation;
             quizFeedbackEl.style.color = '#dc3545';
         }
 
@@ -136,17 +136,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const percentage = Math.round((score / quizData.length) * 100);
 
         if (percentage >= 80) {
-            quizResultIcon.textContent = '🌟';
-            quizResultTitle.textContent = 'Agricultor Sustentável!';
-            quizResultText.textContent = `Você acertou ${score} de ${quizData.length} (${percentage}%). Você realmente entende o equilíbrio entre produção e sustentabilidade!`;
+            quizResultIcon.textContent = '💧';
+            quizResultTitle.textContent = 'Guardião das Águas!';
+            quizResultText.textContent = `Você acertou ${score} de ${quizData.length} (${percentage}%). Sua propriedade é um modelo exemplar de gestão e preservação hídrica!`;
         } else if (percentage >= 50) {
             quizResultIcon.textContent = '🌱';
-            quizResultTitle.textContent = 'Bom conhecimento!';
-            quizResultText.textContent = `Você acertou ${score} de ${quizData.length} (${percentage}%). Continue aprendendo sobre práticas sustentáveis!`;
+            quizResultTitle.textContent = 'Bom manejo!';
+            quizResultText.textContent = `Você acertou ${score} de ${quizData.length} (${percentage}%). Você compreende bem a importância do recurso, continue praticando!`;
         } else {
-            quizResultIcon.textContent = '📚';
-            quizResultTitle.textContent = 'Hora de estudar!';
-            quizResultText.textContent = `Você acertou ${score} de ${quizData.length} (${percentage}%). Explore as seções do site para aprender mais!`;
+            quizResultIcon.textContent = '🌊';
+            quizResultTitle.textContent = 'Precisa de atenção!';
+            quizResultText.textContent = `Você acertou ${score} de ${quizData.length} (${percentage}%). Explore os conteúdos do site para aprender mais técnicas de conservação!`;
         }
     }
 
@@ -294,7 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const hero = document.querySelector('.hero');
         if (!hero) return;
 
-        const leafEmojis = ['🍃', '🌿', '🍂', '🍁', '✨'];
+        const leafEmojis = ['💧', '🌧️', '💦', '🌱', '✨'];
         const container = document.createElement('div');
         container.className = 'falling-leaves-container';
         container.style.cssText = `
@@ -330,5 +330,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     createFallingLeaves();
 
-    console.log('🌾 Agro Forte • Futuro Sustentável — pronto para o Agrinho 2026!');
+    console.log('💧 Agro Forte • Gestão Hídrica Inteligente — pronto para o Agrinho 2026!');
 });
